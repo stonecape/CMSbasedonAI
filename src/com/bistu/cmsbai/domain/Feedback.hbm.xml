@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.bistu.cmsbai.domain.Feedback" table="feedback">
+        <id name="fid" type="int">
+            <column name="fid" />
+            <generator class="increment" />
+        </id>
+        <property name="cid" type="int">
+            <column name="cid"/>
+        </property>
+        <property name="commitDate" type="java.util.Date">
+            <column name="commitdate"/>
+        </property>
+        <property name="quality" type="int">
+            <column name="quality"/>
+        </property>
+        <property name="service" type="int">
+            <column name="service"/>
+        </property>
+        <property name="price" type="int">
+            <column name="price"/>
+        </property>
+        <property name="ontime" type="int">
+            <column name="ontime"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.bistu.cmsbai.domain.Order" table="orderlist">
+        <id name="oid" type="int">
+            <column name="oid" />
+            <generator class="increment" />
+        </id>
+        <property name="cid" type="int">
+            <column name="cid"/>
+        </property>
+        <property name="sid" type="int">
+            <column name="sid"/>
+        </property>
+        <property name="unitPrice" type="int">
+            <column name="unitprice"/>
+        </property>
+        <property name="amount" type="int">
+            <column name="amount"/>
+        </property>
+        <property name="discount" type="double">
+            <column name="discount"/>
+        </property>
+        <property name="commitDate" type="java.util.Date">
+            <column name="commitdate"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.bistu.cmsbai.domain.Stock" table="stock">
+        <id name="sid" type="int">
+            <column name="sid" />
+            <generator class="increment" />
+        </id>
+        <property name="profile" type="string">
+            <column name="profile"/>
+        </property>
+		<property name="remainder" type="int">
+            <column name="remainder"/>
+        </property>        
+        <property name="location" type="string">
+            <column name="location"/>
+        </property>  
+        <property name="director" type="string">
+            <column name="director"/>
+        </property>
+        <property name="status" type="int">
+            <column name="status"/>
+        </property>
+    </class>
+</hibernate-mapping>

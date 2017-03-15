@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.bistu.cmsbai.domain.Client" table="client">
+        <id name="cid" type="int">
+            <column name="cid" />
+            <generator class="increment" />
+        </id>
+        <property name="companyName" type="string">
+            <column name="companyname"/>
+        </property>
+        <property name="address" type="string">
+            <column name="address"/>
+        </property>
+        <property name="credit" type="int">
+            <column name="credit"/>
+        </property>
+        <property name="linkName" type="string">
+            <column name="linkname"/>
+        </property>
+        <property name="telePhone" type="string">
+            <column name="telephone"/>
+        </property>
+        <property name="email" type="string">
+            <column name="email"/>
+        </property>
+        <property name="starLevel" type="int">
+            <column name="starlevel"/>
+        </property>
+    </class>
+</hibernate-mapping>

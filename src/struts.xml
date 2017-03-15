@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"/>
+    <package name="customermanager" namespace="/customermanager" extends="struts-default">
+   		 <interceptors>
+    		<interceptor name="AuthInterceptor" class="com.bistu.cmsbai.web.AuthInterceptor"></interceptor>
+    		<interceptor-stack name="AuthenticationStack">
+    			<interceptor-ref name="defaultStack"/>
+    			<interceptor-ref name="AuthInterceptor"/>
+    		</interceptor-stack>
+    	</interceptors>
+    	
+    	<action name="GetClientsByOptionsAction" class="clientQueryAction" method="getClientsByOptions"></action>
+    	
+    	<action name="AddClientAction" class="addClientAction">
+    		<result name="success" type="redirect">/customermanager/ManageClientInfo.jsp</result>
+    		<result name="input">/customermanager/AddNewClient.jsp</result>
+    	</action>
+    	
+    	<action name="JudgeClientCompanyNameAction" class="addClientAction" method="judgeClientCompanyName"></action>
+    	
+    	<action name="ModifyClientInfoAction" class="modifyClientInfoAction">
+    		<result name="success" type="redirect">>/customermanager/ManageClientInfo.jsp</result>
+    		<result name="input">/customermanager/ClientDetailInfo.jsp?cid=${pagecid}</result>
+    	</action>
+    	
+    	<action name="GetStockBySidAction" class="stocksQueryAction" method="getStockBySid"></action>
+    	
+    	<action name="GetShowOrderViewsByCommitTimeRangeAction" class="orderQueryAction" method="getShowOrderViewsByCommitTimeRange"></action>
+    	
+    	<action name="GetShowOrderViewsByOidAction" class="orderQueryAction" method="getShowOrderViewsByOid"></action>
+    	
+    	<action name="GetShowOrderViewsByCompanyNameAction" class="orderQueryAction" method="getShowOrderViewsByCompanyName"></action>
+    	
+    	<action name="AddOrderAction" class="addOrderAction">
+    		<result name="success" type="redirect">/customermanager/ManageOrderInfo.jsp</result>
+    		<result name="input">/customermanager/AddNewOrder.jsp</result>
+    	</action>
+    	<action name="CheckCidAndReturnClientInfoAction" class="addOrderAction" method="checkCidAndReturnClientInfo"></action>
+    	
+    	<action name="CheckSidAndReturnStockInfoAction" class="addOrderAction" method="checkSidAndReturnStockInfo"></action>
+    	
+    	<action name="CheckStockRemainderAction" class="addOrderAction" method="checkStockRemainder"></action>
+    	
+    	<action name="AddNewFeedbackAction" class="addNewFeedbackAction">
+    		<result name="success" type="redirect">/customermanager/ManageFeedback.jsp</result>
+    		<result name="input">/customermanager/InputFeedBackInfo.jsp</result>
+    	</action>
+    	
+    	<action name="CalculateResultByRangeDateAction" class="feedbackStatisticAction" method="calculateResultByRangeDate"></action>
+    	
+    	<action name="GetFilterResultByAlgorithmAction" class="potentialClientAction" method="getFilterResultByAlgorithm"></action>
+    	
+    	<action name="ModifyStarLevelAction" class="potentialClientAction" method="modifyStarLevel"></action>
+    	
+    	<action name="CheckCidAndReturnClientSatisfactionAction" class="clientSatisfactionAction" method="checkCidAndReturnClientSatisfaction"></action>
+    	
+    	<action name="Authentication" class="com.bistu.cmsbai.controller.AuthenticationAction">
+        	<result name="ManageClientInfo">/customermanager/ManageClientInfo.jsp</result>
+        	<result name="ManagePotentialClient">/customermanager/ManagePotentialClient.jsp</result>
+        	<result name="QueryStockInfo">/customermanager/QueryStockInfo.jsp</result>
+        	<result name="QueryClientSatisfaction">/customermanager/QueryClientSatisfaction.jsp</result>
+        	<result name="login">/customermanager/Login.jsp</result>
+        	<interceptor-ref name="AuthenticationStack"/>
+        </action>
+    	
+    	<action name="CustomerManagerLoginAction" class="customerManagerLoginAction">
+        	<result name="timeout" type="redirect">/index.jsp</result>
+        	<result name="success" type="redirect">/customermanager/${page}.jsp</result>
+        	<result name="input">/customermanager/Login.jsp</result>
+        </action>
+        
+        <action name="RemoveLoginCustomerManagerAction" class="com.bistu.cmsbai.customermanager.controller.CustomerManagerLoginAction" method="removeLoginCustomerManager">
+        	<result name="success" type="redirect">/index.jsp</result>
+        	<result name="input" type="redirect">/customermanager/Login.jsp</result>
+        </action>
+    </package>
+     <package name="/" namespace="/" extends="struts-default">
+     	<action name="rand" class="com.bistu.cmsbai.controller.RandomAction">      
+       		<result type="stream">      
+	            <param name="contentType">image/jpeg</param>      
+	            <param name="inputName">inputStream</param>      
+       		</result>   
+   		</action> 
+     </package>
+</struts>

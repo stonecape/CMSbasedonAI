@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.bistu.cmsbai.domain.ShowOrderView" table="showorder">
+    	<composite-id name="singleShowOrder" class="com.bistu.cmsbai.domain.ShowOrder">
+    		<key-property name="oid" type="int">
+    			 <column name="oid" />
+    		</key-property>
+    		<key-property name="cid" type="int">
+           		<column name="cid"/>
+	        </key-property>
+	        <key-property name="sid" type="int">
+	            <column name="sid"/>
+	        </key-property>
+	        <key-property name="unitPrice" type="int">
+	            <column name="unitprice"/>
+	        </key-property>
+	        <key-property name="amount" type="int">
+	            <column name="amount"/>
+	        </key-property>
+	        <key-property name="discount" type="double">
+	            <column name="discount"/>
+	        </key-property>
+	        <key-property name="commitDate" type="java.util.Date">
+	            <column name="commitdate"/>
+	        </key-property>
+	        <key-property name="companyName" type="string">
+	        	<column name="companyname" />
+	        </key-property>
+	        <key-property name="profile" type="string">
+	        	<column name="profile" />
+	        </key-property>
+    	</composite-id><!--
+        <id name="oid" type="int">
+            <column name="oid" />
+        </id>
+        <property name="cid" type="int">
+            <column name="cid"/>
+        </property>
+        <property name="sid" type="int">
+            <column name="sid"/>
+        </property>
+        <property name="unitPrice" type="int">
+            <column name="unitprice"/>
+        </property>
+        <property name="amount" type="int">
+            <column name="amount"/>
+        </property>
+        <property name="discount" type="double">
+            <column name="discount"/>
+        </property>
+        <property name="commitDate" type="java.util.Date">
+            <column name="commitdate"/>
+        </property>
+        <property name="companyName" type="string">
+        	<column name="companyname" />
+        </property>
+        <property name="profile" type="string">
+        	<column name="profile" />
+        </property>
+    --></class>
+</hibernate-mapping>
